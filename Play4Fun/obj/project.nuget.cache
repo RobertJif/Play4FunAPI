@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Xr/7bJp3tMt9DfJJgL0xD/g7HMgGI7cjWHk1MHPgAKSspGYH9GamOwUdc+KAEi/YD2u+A2baotZrUoKEa6EiVg==",
+  "dgSpecHash": "imbDrIJYRALhVMEfF/y8DQw7VKx4idF8zbkORYmsg7LVW1ER5F9xnkKpQ6E3pixxuLRI2Whuk5UWksEwzaLz9w==",
   "success": true,
   "projectFilePath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\rober\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.11\\microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",
