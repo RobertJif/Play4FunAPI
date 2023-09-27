@@ -13,6 +13,11 @@ namespace Play4Fun.Repository
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
 
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            new GameEntityTypeConfiguration().Configure(modelBuilder.Entity<Game>());
         }
     }
 }

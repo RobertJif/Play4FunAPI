@@ -10,7 +10,7 @@ namespace Play4Fun.Repository.Entities
 {
     public class Game : BaseEntity
     {
-        public string Code { get; set; } = "";
+        public string Code { get; set; }
 
         public string DescriptionHTML { get; set; } = "";
 
@@ -26,13 +26,13 @@ namespace Play4Fun.Repository.Entities
     {
         public void Configure(EntityTypeBuilder<Game> builder)
         {
-            builder.Property(b => b.Code).IsRequired();
             builder.Property(b => b.DescriptionHTML).IsRequired();
             builder.Property(b => b.GameImagePath).IsRequired();
             builder.Property(b => b.Name).IsRequired();
             builder.Property(b => b.PlayerCount).IsRequired();
             builder.Property(b => b.Status).IsRequired();
-            // builder.HasIndex(b => b.Code).IsUnique();
+            builder.HasIndex(b => b.Code).IsUnique();
+
         }
     }
 
