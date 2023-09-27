@@ -14,9 +14,9 @@ namespace Play4Fun.Repository.Impl
         {
             this.db = db;
         }
-        public List<Game> GetAll()
+        public List<Game> GetAllActive()
         {
-            List<Game> games = db.Games.ToList();
+            List<Game> games = db.Games.Where(s => s.Status != GameStatusEnum.INACTIVE).ToList();
             return games;
         }
     }

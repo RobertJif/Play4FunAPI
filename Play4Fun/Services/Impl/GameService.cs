@@ -17,9 +17,9 @@ namespace Play4Fun.Services
             repo = new GameRepository(db);
             mapper = Mappers.InitializeAutomapper();
         }
-        public List<GameDto> GetAllOptions()
+        public List<GameDto> GetAllPlayable()
         {
-            List<Game> games = repo.GetAll();
+            List<Game> games = repo.GetAllActive();
             return mapper.Map<List<Game>, List<GameDto>>(games);
         }
     }

@@ -26,7 +26,7 @@ namespace Play4Fun.Controllers
         [HttpGet]
         public List<GameResponse> Game()
         {
-            List<GameDto> games = service.GetAllOptions();
+            List<GameDto> games = service.GetAllPlayable();
             return mapper.Map<List<GameDto>, List<GameResponse>>(games);
         }
     }

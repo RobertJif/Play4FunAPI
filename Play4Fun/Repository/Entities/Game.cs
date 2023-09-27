@@ -19,6 +19,7 @@ namespace Play4Fun.Repository.Entities
         public string Name { get; set; } = "";
 
         public int PlayerCount { get; set; }
+        public GameStatusEnum Status { get; set; }
     }
 
     public class GameEntityTypeConfiguration : IEntityTypeConfiguration<Game>
@@ -30,6 +31,16 @@ namespace Play4Fun.Repository.Entities
             builder.Property(b => b.GameImagePath).IsRequired();
             builder.Property(b => b.Name).IsRequired();
             builder.Property(b => b.PlayerCount).IsRequired();
+            builder.Property(b => b.Status).IsRequired();
+            // builder.HasIndex(b => b.Code).IsUnique();
         }
+    }
+
+    public enum GameStatusEnum
+    {
+        ACTIVE,
+        INACTIVE,
+        MAINTENANCE,
+        COMING_SOON
     }
 }

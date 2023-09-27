@@ -4,6 +4,6 @@ namespace Play4Fun.Services
 {
     public interface IGameService
     {
-        public List<GameDto> GetAllOptions();
+        public List<GameDto> GetAllPlayable();
     }
 }

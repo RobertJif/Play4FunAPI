@@ -9,6 +9,6 @@ namespace Play4Fun.Repository
 {
     public interface IGameRepository
     {
-        public List<Game> GetAll();
+        public List<Game> GetAllActive();
     }
 }
