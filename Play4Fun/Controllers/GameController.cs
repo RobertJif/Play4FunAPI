@@ -18,7 +18,7 @@ namespace Play4Fun.Controllers
             List<GameResponse> response = new List<GameResponse>();
             response.Add(new GameResponse
             {
-                ID = 1,
+                Id = 1,
                 Code = "TIC_TAC_TOE",
                 DescriptionHTML = "Game in which two players take turns in drawing either an <b style='color: var(--color-success-200)'>O</b> or an <b style='color: var(--color-error-200)'>X</b> in one square of a grid consisting of nine squares",
                 GameImagePath = "/public/images/game/tic-tac-toe.png",
