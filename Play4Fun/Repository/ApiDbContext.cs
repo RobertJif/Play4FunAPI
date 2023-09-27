@@ -14,12 +14,5 @@ namespace Play4Fun.Repository
         {
 
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<BaseEntity>()
-                .HasKey(c => c.Id)
-                .HasName("");
-        }
     }
 }
