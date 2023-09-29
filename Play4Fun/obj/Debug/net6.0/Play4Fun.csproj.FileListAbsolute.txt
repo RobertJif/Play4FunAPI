@@ -53,3 +53,4 @@ C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.CodeDom.dl
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\EFCore.NamingConventions.dll

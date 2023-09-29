@@ -10,6 +10,9 @@ namespace Play4Fun.Repository
     public class ApiDbContext : DbContext
     {
         public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<GameMatch> GameMatches { get; set; }
+        public virtual DbSet<GameMatchPlayer> GameMatchPlayers { get; set; }
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
 
@@ -18,6 +21,8 @@ namespace Play4Fun.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new GameEntityTypeConfiguration().Configure(modelBuilder.Entity<Game>());
+            new GameMatchEntityTypeConfiguration().Configure(modelBuilder.Entity<GameMatch>());
+            new PlayerEntityTypeConfiguration().Configure(modelBuilder.Entity<Player>());
         }
     }
 }

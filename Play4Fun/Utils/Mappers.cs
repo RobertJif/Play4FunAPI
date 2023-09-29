@@ -17,11 +17,13 @@ namespace Play4Fun.Utils
             {
                 #region Repository -> Service
                 cfg.CreateMap<Game, GameDto>();
+                cfg.CreateMap<GameMatch, GameMatchDto>();
 
                 #endregion
 
                 #region Service -> Controller
                 cfg.CreateMap<GameDto, GameResponse>();
+                cfg.CreateMap<GameMatchDto, GameMatchResponse>().ForMember(to => to.MatchId, opt => opt.MapFrom(s => s.Id));
 
                 #endregion
             });

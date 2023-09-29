@@ -1,3 +1,5 @@
+using Play4Fun.Repository.Entities;
+
 namespace Play4Fun.Models.Responses
 {
     public class GameResponse
@@ -9,6 +11,7 @@ namespace Play4Fun.Models.Responses
         public string GameImagePath { get; set; } = "";
         public string Name { get; set; } = "";
         public int PlayerCount { get; set; }
+        public GameStatusEnum Status { get; set; }
 
     }
 }

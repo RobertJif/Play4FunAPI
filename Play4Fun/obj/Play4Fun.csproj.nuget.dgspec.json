@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {}
+    "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {
+    "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
+        "projectUniqueName": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
         "projectName": "Play4Fun",
-        "projectPath": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
+        "projectPath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\obj\\",
+        "outputPath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.22, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

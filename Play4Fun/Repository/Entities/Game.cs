@@ -20,6 +20,7 @@ namespace Play4Fun.Repository.Entities
 
         public int PlayerCount { get; set; }
         public GameStatusEnum Status { get; set; }
+        public ICollection<GameMatch> GameMatches { get; set; }
     }
 
     public class GameEntityTypeConfiguration : IEntityTypeConfiguration<Game>
@@ -32,6 +33,7 @@ namespace Play4Fun.Repository.Entities
             builder.Property(b => b.PlayerCount).IsRequired();
             builder.Property(b => b.Status).IsRequired();
             builder.HasIndex(b => b.Code).IsUnique();
+            builder.HasMany(s => s.GameMatches).WithOne(s => s.Game).HasForeignKey(s => s.GameId);
 
         }
     }
