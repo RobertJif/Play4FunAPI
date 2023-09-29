@@ -4,12 +4,25 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Play4Fun.Repository;
 
+string corsPolicy = "mini-game-cors";
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+#region Build Services
+
+#region Register API
 
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(p => p.AddPolicy(corsPolicy, builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
+#endregion Register API
+
+#region Register Auth
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -29,23 +42,28 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true
     };
 });
-
-// Console.WriteLine("ASPNETCORE_ENVIRONMENT: " + Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApiDbContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("ApiMiniGameDatabase")).UseSnakeCaseNamingConvention());
-
 builder.Services.AddAuthorization();
-// Add configuration from appsettings.json
-builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .AddEnvironmentVariables();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+#endregion Auth
 
-string corsPolicy = "mini-game-cors";
-builder.Services.AddCors(p => p.AddPolicy(corsPolicy, builder =>
-   {
-       builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-   }));
+#region Register DB
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApiDbContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("ApiMiniGameDatabase")).UseSnakeCaseNamingConvention());
+#endregion DB
+
+#region Register Validator
+
+
+
+#endregion
+
+#endregion Build Services
+
+#region Build Configs
+
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
+
+#endregion Build Configs
+
+#region Run App
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,3 +83,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+#endregion App

@@ -54,3 +54,13 @@ C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.Text.Encod
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\EFCore.NamingConventions.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\rober\source\repos\Play4Fun\Play4Fun\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -17,6 +17,5 @@ namespace Play4Fun.Repository.Impl
         {
             return db.GameMatches.Where(s => s.Game.Code == gameCode).OrderByDescending(s => s.Id).ToList();
         }
-        public GameMatch Create()
     }
 }

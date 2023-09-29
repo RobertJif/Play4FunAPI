@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Play4Fun.Services.Dtos;
 
 namespace Play4Fun.Services
 {
     public interface IAuthService
     {
-        public bool CheckCredential(string username, string password);
+        public PlayerDto? IsCredentialOk(string username, string password);
     }
 }

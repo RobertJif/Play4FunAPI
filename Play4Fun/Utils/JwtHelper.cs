@@ -23,7 +23,7 @@ namespace Play4Fun.Utils
         {
             var issuer = config["Jwt:Issuer"];
             var audience = config["Jwt:Audience"];
-            var key = Encoding.UTF8.GetBytes(config["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(config["Jwt:AccessKey"]);
             var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha512Signature
@@ -32,7 +32,7 @@ namespace Play4Fun.Utils
             var subject = new ClaimsIdentity(new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.Email, username),
+                new Claim(JwtRegisteredClaimNames.Name, username),
             });
 
             var accessTokenExpiredMinute = config["Jwt:AccessTokenExpirationMinute"];
@@ -44,6 +44,48 @@ namespace Play4Fun.Utils
             };
 
             var expires = DateTime.UtcNow.AddMinutes(int.Parse(accessTokenExpiredMinute));
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = subject,
+                Expires = expires,
+                Issuer = issuer,
+                Audience = audience,
+                SigningCredentials = signingCredentials
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var jwtToken = tokenHandler.WriteToken(token);
+
+            return jwtToken;
+
+        }
+        public string GenerateRefreshToken(string username)
+        {
+            var issuer = config["Jwt:Issuer"];
+            var audience = config["Jwt:Audience"];
+            var key = Encoding.UTF8.GetBytes(config["Jwt:RefreshKey"]);
+            var signingCredentials = new SigningCredentials(
+                new SymmetricSecurityKey(key),
+                SecurityAlgorithms.HmacSha512Signature
+            );
+
+            var subject = new ClaimsIdentity(new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Name, username),
+            });
+
+            var refreshTokenExpirationDay = config["Jwt:RefreshTokenExpirationDay"];
+
+
+            if (refreshTokenExpirationDay == null)
+            {
+                throw new Exception("");
+            };
+
+            var expires = DateTime.UtcNow.AddDays(int.Parse(refreshTokenExpirationDay));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

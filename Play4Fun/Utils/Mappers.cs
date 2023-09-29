@@ -26,6 +26,12 @@ namespace Play4Fun.Utils
                 cfg.CreateMap<GameMatchDto, GameMatchResponse>().ForMember(to => to.MatchId, opt => opt.MapFrom(s => s.Id));
 
                 #endregion
+
+                #region Controller -> Client
+
+                cfg.CreateMap<FluentValidation.Results.ValidationFailure, ErrorResponse>();
+
+                #endregion
             });
 
             var mapper = new Mapper(config);

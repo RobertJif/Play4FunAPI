@@ -14,6 +14,7 @@ namespace Play4Fun.Repository.Entities
         public string Username { get; set; }
         public string DisplayName { get; set; }
         public string Password { get; set; }
+        public byte[] Salt { get; set; }
 
         public ICollection<GameMatchPlayer> GameMatchPlayers { get; set; }
 
@@ -27,6 +28,7 @@ namespace Play4Fun.Repository.Entities
             builder.Property(b => b.DisplayName).IsRequired().HasMaxLength(20);
             builder.Property(b => b.Password).IsRequired().HasMaxLength(20);
             builder.Property(b => b.Status).IsRequired();
+            builder.Property(b => b.Salt).IsRequired();
             builder.HasMany(s => s.GameMatchPlayers).WithOne(p => p.Player).HasForeignKey(p => p.PlayerId);
         }
     }

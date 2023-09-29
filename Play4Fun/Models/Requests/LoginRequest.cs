@@ -1,14 +1,19 @@
-﻿namespace Play4Fun.Models.Requests
+﻿using FluentValidation;
+
+namespace Play4Fun.Models.Requests
 {
     public class LoginRequest
     {
         public string Username { get; set; }
         public string Password { get; set; }
+    }
 
-        public LoginRequest(string userName, string password)
+    public class LoginRequestValidator : AbstractValidator<LoginRequest>
+    {
+        public LoginRequestValidator()
         {
-            Username = userName;
-            Password = password;
+            RuleFor(x => x.Username).NotNull().MaximumLength(16).MinimumLength(8);
+            RuleFor(x => x.Password).NotNull().MaximumLength(16).MinimumLength(8);
         }
     }
 }

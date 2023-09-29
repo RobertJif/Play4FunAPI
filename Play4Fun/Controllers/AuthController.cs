@@ -1,12 +1,15 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Play4Fun.Models.Requests;
 using Play4Fun.Models.Responses;
 using Play4Fun.Repository;
+using Play4Fun.Repository.Entities;
+using Play4Fun.Services.Dtos;
 using Play4Fun.Services.Impl;
 using Play4Fun.Utils;
 
@@ -18,14 +21,14 @@ namespace Play4Fun.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        IConfiguration configuration;
         JwtHelper jwt;
         AuthService service;
+        Mapper mapper;
         public AuthController(ApiDbContext db, IConfiguration configuration)
         {
-            this.configuration = configuration;
             jwt = new JwtHelper(configuration);
-            service = new AuthService(db, configuration);
+            service = new AuthService(db, configuration, jwt);
+            mapper = Mappers.InitializeAutomapper();
         }
 
         // POST api/auth/login
@@ -34,18 +37,23 @@ namespace Play4Fun.Controllers
         [Route("login")]
         public IActionResult Login([FromBody] LoginRequest req)
         {
-            IActionResult response = Unauthorized();
+            var isRequestValid = new LoginRequestValidator().Validate(req);
 
-            if (req != null)
+
+            if (!isRequestValid.IsValid)
             {
-                if (service.CheckCredential(req.Username, req.Password))
-                {
-                    var accessToken = jwt.GenerateAccessToken(req.Username);
-                    return Ok(accessToken);
-                }
+                return BadRequest(mapper.Map<IList<ErrorResponse>>(isRequestValid.Errors));
             }
 
-            return response;
+            PlayerDto? player = service.IsCredentialOk(req.Username, req.Password);
+            if (player == null)
+            {
+                return Unauthorized();
+            }
+
+            string accessToken = jwt.GenerateAccessToken(player.Username);
+            string refreshCode = jwt.GenerateRefreshToken(player.Username);
+            return Ok(new LoginResponse(accessToken, refreshCode));
         }
         // POST api/auth/register
         [HttpPost]

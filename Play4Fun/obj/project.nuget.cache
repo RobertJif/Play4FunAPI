@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "VgBeRyl5ynypm5nAoakNq92UvKv4ckmPJIM0vMDGIwEAw4xGePyrrp6BiG2xcalM64YTRtg1xc91mk+hx5768Q==",
+  "dgSpecHash": "uyD+5Y0Z+j1TIFiY+k4vRbHWNMZWS8bF+/MGxln82YQursmoEdczyo1H4t22jeGSEkWS3dtrzTvDibuKDwGs4Q==",
   "success": true,
   "projectFilePath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rober\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\efcore.namingconventions\\7.0.2\\efcore.namingconventions.7.0.2.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.22\\microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
