@@ -37,7 +37,7 @@ namespace Play4Fun.Repository.Impl
 
         public Player GetActive(string username, string password)
         {
-            var player = db.Players.Where(s => s.Username == username & s.Password == password & s.Status == PlayerStatus.ACTIVE).First();
+            var player = db.Players.First(s => s.Username == username & s.Password == password & s.Status == PlayerStatus.ACTIVE);
             return player;
         }
     }
