@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uyD+5Y0Z+j1TIFiY+k4vRbHWNMZWS8bF+/MGxln82YQursmoEdczyo1H4t22jeGSEkWS3dtrzTvDibuKDwGs4Q==",
+  "dgSpecHash": "JGwwZMaenfPEtq5KpxwHadjKBZ0VHxFH7kgIL40tS7UxP3Kldec6MO7s8200z7163ikSsprdRVVzg1SdtZN38Q==",
   "success": true,
-  "projectFilePath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
+  "projectFilePath": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rober\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\efcore.namingconventions\\7.0.2\\efcore.namingconventions.7.0.2.nupkg.sha512",

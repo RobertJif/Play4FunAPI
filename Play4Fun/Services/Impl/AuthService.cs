@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Play4Fun.Repository;
+using Play4Fun.Repository.Entities;
 using Play4Fun.Repository.Impl;
 using Play4Fun.Services.Dtos;
 using Play4Fun.Utils;
@@ -25,6 +26,14 @@ namespace Play4Fun.Services.Impl
             mapper = Mappers.InitializeAutomapper();
             repo = new PlayerRepository(db);
         }
+
+        public void Create(CreatePlayerDto player)
+        {
+            var (password, salt) = jwt.HashPassword(player.Password);
+
+            repo.Create(player.Username, password, salt);
+        }
+
         public PlayerDto? IsCredentialOk(string username, string password)
         {
             var player = repo.GetActive(username, password);

@@ -13,6 +13,23 @@ namespace Play4Fun.Repository.Impl
         {
             this.db = db;
         }
+
+        public int Create(string username, string password, byte[] salt)
+        {
+            var player = new Player
+            {
+                Salt = salt,
+                DisplayName = username,
+                Username = username,
+                Password = password,
+                Status = PlayerStatus.ACTIVE
+            };
+            db.Players.Add(player);
+            db.SaveChanges();
+
+            return player.Id;
+        }
+
         public Player GetActive(string username, string password)
         {
             var player = db.Players.Where(s => s.Username == username & s.Password == password & s.Status == PlayerStatus.ACTIVE).First();

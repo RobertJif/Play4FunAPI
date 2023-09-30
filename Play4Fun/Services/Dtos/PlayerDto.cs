@@ -10,4 +10,10 @@ namespace Play4Fun.Services.Dtos
     {
 
     }
+
+    public class CreatePlayerDto
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
 }

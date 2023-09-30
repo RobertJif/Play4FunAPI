@@ -45,7 +45,7 @@ namespace Play4Fun.Controllers
                 return BadRequest(mapper.Map<IList<ErrorResponse>>(isRequestValid.Errors));
             }
 
-            PlayerDto? player = service.IsCredentialOk(req.Username, req.Password);
+            PlayerDto? player = service.IsCredentialOk(req.Username.ToLower(), req.Password);
             if (player == null)
             {
                 return Unauthorized();
@@ -58,8 +58,17 @@ namespace Play4Fun.Controllers
         // POST api/auth/register
         [HttpPost]
         [Route("register")]
-        public void Register([FromBody] string value)
+        public IActionResult Register([FromBody] RegisterRequest req)
         {
+            var isRequestValid = new RegisterRequestValidator().Validate(req);
+            if (!isRequestValid.IsValid)
+            {
+                return BadRequest(mapper.Map<IList<ErrorResponse>>(isRequestValid.Errors));
+            }
+
+            service.Create(mapper.Map<CreatePlayerDto>(req));
+
+            return Ok();
         }
         // POST api/auth/login
         [HttpPost]

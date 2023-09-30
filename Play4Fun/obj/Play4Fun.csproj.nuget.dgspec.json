@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {}
+    "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {}
   },
   "projects": {
-    "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {
+    "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
+        "projectUniqueName": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
         "projectName": "Play4Fun",
-        "projectPath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
+        "projectPath": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\Play4Fun.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\obj\\",
+        "outputPath": "C:\\Users\\rober\\source\\repos\\Play4Fun\\Play4Fun\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",

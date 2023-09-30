@@ -13,8 +13,8 @@ namespace Play4Fun.Repository.Entities
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
-        public string CreatedBy { get; set; } = "";
-        public string ModifiedBy { get; set; } = "";
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 
     public class BaseEntityTypeConfiguration : IEntityTypeConfiguration<BaseEntity>
@@ -22,8 +22,10 @@ namespace Play4Fun.Repository.Entities
         public void Configure(EntityTypeBuilder<BaseEntity> builder)
         {
             builder.HasKey(b => b.Id);
-            builder.Property(b => b.CreatedBy).IsRequired();
-            builder.Property(b => b.CreatedAt).IsRequired();
+            builder.Property(b => b.CreatedBy).HasDefaultValue("system");
+            builder.Property(b => b.CreatedAt).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(b => b.ModifiedBy).HasDefaultValue("system");
+            builder.Property(b => b.ModifiedAt).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }
