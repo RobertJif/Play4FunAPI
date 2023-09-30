@@ -16,13 +16,18 @@ namespace Play4Fun.Repository.Impl
 
         public int Create(string username, string password, byte[] salt)
         {
+            var now = DateTime.UtcNow;
             var player = new Player
             {
                 Salt = salt,
                 DisplayName = username,
                 Username = username,
                 Password = password,
-                Status = PlayerStatus.ACTIVE
+                Status = PlayerStatus.ACTIVE,
+                CreatedAt = now,
+                ModifiedAt = now,
+                CreatedBy = username,
+                ModifiedBy = username
             };
             db.Players.Add(player);
             db.SaveChanges();
