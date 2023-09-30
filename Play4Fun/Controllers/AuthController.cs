@@ -50,7 +50,7 @@ namespace Play4Fun.Controllers
             {
                 return Unauthorized();
             }
-
+            // todo move this to service and save refresh token to db 
             string accessToken = jwt.GenerateAccessToken(player.Username);
             string refreshCode = jwt.GenerateRefreshToken(player.Username);
             return Ok(new LoginResponse(accessToken, refreshCode));

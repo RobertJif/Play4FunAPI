@@ -8,7 +8,8 @@ namespace Play4Fun.Repository
 {
     public interface IPlayerRepository
     {
-        public Player GetActive(string username, string password);
+        public Player? Get(string username, PlayerStatusEnum status);
+        public Player? Get(string username);
 
         public int Create(string username, string password, byte[] salt);
     }

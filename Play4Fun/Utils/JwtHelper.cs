@@ -19,6 +19,27 @@ namespace Play4Fun.Utils
         {
             this.config = config;
         }
+
+        // public bool ValidateToken(string token){
+        //     var issuer = config["Jwt:Issuer"];
+        //     var audience = config["Jwt:Audience"];
+        //     var key = Encoding.UTF8.GetBytes(config["Jwt:AccessKey"]); 
+
+        //     var accessTokenExpiredMinute = config["Jwt:AccessTokenExpirationMinute"];
+
+
+        //     if (accessTokenExpiredMinute == null)
+        //     {
+        //         throw new Exception("");
+        //     };
+
+        //     var expires = DateTime.UtcNow.AddMinutes(int.Parse(accessTokenExpiredMinute));
+
+        //     var tokenDescriptor = new TokenInva
+
+        //     var tokenHandler = new JwtSecurityTokenHandler();
+        //     var token = tokenHandler.CreateToken(tokenDescriptor);
+        // }
         public string GenerateAccessToken(string username)
         {
             var issuer = config["Jwt:Issuer"];

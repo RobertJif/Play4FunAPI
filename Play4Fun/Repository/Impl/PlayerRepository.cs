@@ -16,28 +16,36 @@ namespace Play4Fun.Repository.Impl
 
         public int Create(string username, string password, byte[] salt)
         {
+            var playerUsername = username.ToLower();
             var now = DateTime.UtcNow;
             var player = new Player
             {
                 Salt = salt,
-                DisplayName = username,
-                Username = username,
+                DisplayName = playerUsername,
+                Username = playerUsername,
                 Password = password,
-                Status = PlayerStatus.ACTIVE,
+                Status = PlayerStatusEnum.ACTIVE,
                 CreatedAt = now,
                 ModifiedAt = now,
-                CreatedBy = username,
-                ModifiedBy = username
+                CreatedBy = playerUsername,
+                ModifiedBy = playerUsername
             };
             db.Players.Add(player);
+
             db.SaveChanges();
 
             return player.Id;
         }
 
-        public Player GetActive(string username, string password)
+        public Player? Get(string username)
         {
-            var player = db.Players.First(s => s.Username == username & s.Password == password & s.Status == PlayerStatus.ACTIVE);
+            var player = db.Players.FirstOrDefault(s => s.Username == username.ToLower());
+            return player;
+        }
+
+        public Player? Get(string username, PlayerStatusEnum status)
+        {
+            var player = db.Players.FirstOrDefault(s => s.Username == username.ToLower() & s.Status == status);
             return player;
         }
     }

@@ -10,15 +10,18 @@ namespace Play4Fun.Controllers
     [Route("/error")]
     [ApiController]
     public class ErrorController : ControllerBase
-    { 
+    {
 
         // GET error handler
-        [HttpGet] 
+        [HttpPost]
+        [HttpGet]
+        [HttpPut]
+        [HttpDelete]
         public IActionResult Error()
         {
             Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
-            
-            return Problem(detail: exception?.Message,title: exception?.Message, statusCode: 500);
-        } 
+
+            return Problem(detail: exception?.Message, title: exception?.Message, statusCode: 500);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Play4Fun.Repository.Entities
 {
     public class Player : BaseEntity
     {
-        public PlayerStatus Status { get; set; }
+        public PlayerStatusEnum Status { get; set; }
 
         public string Username { get; set; }
         public string DisplayName { get; set; }
@@ -37,7 +37,7 @@ namespace Play4Fun.Repository.Entities
         }
     }
 
-    public enum PlayerStatus
+    public enum PlayerStatusEnum
     {
         ACTIVE,
         SUSPENDED,

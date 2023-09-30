@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Play4Fun.Exceptions;
 using Play4Fun.Repository;
 using Play4Fun.Repository.Entities;
 using Play4Fun.Repository.Impl;
@@ -27,16 +28,23 @@ namespace Play4Fun.Services.Impl
             repo = new PlayerRepository(db);
         }
 
-        public void Create(CreatePlayerDto player)
+        public void Create(CreatePlayerDto playerDto)
         {
-            var (password, salt) = jwt.HashPassword(player.Password);
+            var player = repo.Get(playerDto.Username);
 
-            repo.Create(player.Username, password, salt);
+            if (player != null)
+            {
+                throw new AuthException().DuplicateUsername;
+            }
+
+            var (password, salt) = jwt.HashPassword(playerDto.Password);
+
+            repo.Create(playerDto.Username, password, salt);
         }
 
         public PlayerDto? IsCredentialOk(string username, string password)
         {
-            var player = repo.GetActive(username, password);
+            var player = repo.Get(username, PlayerStatusEnum.ACTIVE);
 
             if (player == null)
             {
